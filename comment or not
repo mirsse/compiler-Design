@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+
+bool isComment(const char *input) {
+    return strncmp(input, "//", 2) == 0 || strncmp(input, "/*", 2) == 0;
+}
+
+int main() {
+
+    char input[100];
+    
+    printf("Enter a line of C code: ");
+    fgets(input, sizeof(input), stdin);
+    
+    if (isComment(input)) {
+        printf("The input is a comment.\n");
+    } else {
+        printf("The input is not a comment.\n");
+    }
+    
+    return 0;
+}
